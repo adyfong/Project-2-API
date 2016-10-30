@@ -1,0 +1,26 @@
+{
+  "name": "icon_project",
+  "version": "1.0.0",
+  "description": "API for icons",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ady Fong",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "dotenv": "^2.0.0",
+    "ejs": "^2.5.2",
+    "eslint": "^3.8.1",
+    "express": "^4.14.0",
+    "method-override": "^2.3.6",
+    "moment": "^2.15.2",
+    "mongodb": "^2.2.11",
+    "morgan": "^1.7.0",
+    "node-fetch": "^1.6.3",
+    "oauth": "^0.9.14",
+    "path": "^0.12.7",
+    "the-noun-project": "^2.0.1"
+  }
+}
