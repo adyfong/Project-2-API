@@ -2,6 +2,12 @@
   padding-top: 50px;
 }
 
+.container2{
+  width: 80%;
+  padding-left: 15%;
+
+}
+
 
 .centerUser{
   display: block;
@@ -22,12 +28,12 @@
 
 .result {
   background-color: white;
- /* display:block;*/
+ display:inline-block;
   width:100px;
   height: 150px;
   margin: 10px 50px 0px 50px;
   border-radius: 20px;
-  float:left;
+/*  float:left;*/
   /*padding-top: 10px;
   width: 100px;
   height: 100px;
@@ -61,8 +67,8 @@
 .userlogin{
   font-size: 18px;
   display: block;
-  padding-left: 850px;
-  margin: 50px 100px 0px 0px;
+  position: fixed;
+  right: 0;
 }
 
 .userlogout{
