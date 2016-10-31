@@ -36,7 +36,10 @@ app.use(logger('dev'));
 app.use('/', homeRoute);
 app.use('/search', searchRoute);
 app.use('/favorites', favRoute);
-app.use('/auth', authRoute)
-app.use('/users', usersRoute)
+app.use('/auth', authRoute);
+app.use('/users', usersRoute);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.listen(port, () => console.log('Server started on port', port));
+

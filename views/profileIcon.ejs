@@ -3,35 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>Profile</title>
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
   <body>
     <!-- Example -->
-    <h1>Welcome! <%= user.username %></h1>
+    <div class="centerUser">
+    <div class='userlogout'>
     <form action="/auth?_method=DELETE" method="post">
       <input type="submit" value="Logout">
     </form>
-  <form action="/search/searchIcon" method="GET">
+    </div>
+    <h1>Welcome! <%= user.username %></h1>
+    </div>
+
+  <form class ="searchform cf" action="/search/searchIcon" method="GET">
     <input type="text"  name="icon"  placeholder="Enter Search">
     <input type="submit" value="Search">
   </form>
 
- <div class='favorites'>
-  <h1> FAVORITES </h1>
+  <h1 id="myFavTitle"> FAVORITES </h1>
+
+  <div class="container">
   <% favorites.forEach(function(fav) { %>
-    <div class="result">
+
       <h4>Icon: <%= fav.id %></h4>
       <img class="favoriteItems" src="<%= fav.previewURL%>" alt="icon" />
       <form action="/favorites/deleteFavorite/<%=fav._id %>?_method=DELETE" method="post">
        <input type="submit" value="Delete">
       </form>
-    </div>
+
   <% }) %>
 </div>
 
 
-<a href="/">Search Again</a>
+<!-- <a href="/">Search Again</a> -->
 
 
 </body>

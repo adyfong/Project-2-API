@@ -4,27 +4,40 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Show Search Result</title>
-  <link rel="stylesheet" type="text/css" href="./css/normalize.css">
-  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+  <div class='userlogin'>
   <%if (req.session.userId == null) { %>
      <nav>
         <a href="/signup">Sign Up</a>
         <a href="/login">Log In</a>
      </nav>
-  <% } %>
+  <% }else{ %>
+    <div class='userlogout'>
+    <form action="/auth?_method=DELETE" method="post">
+      <input type="submit" value="Logout">
+    </form>
+    </div>
+ <% } %>
+
+  </div>
 </head>
-<body id="IconPage">
+<body>
 
+  <h1 id="myTitle">Noun Project Search</h1>
+
+  <form class ="searchform cf" action="/search/searchIcon" method="GET">
+    <input type="text"  name="icon"  placeholder="Enter Search">
+    <input type="submit" value="Search">
+  </form>
+<div class="container">
  <% icon.forEach(function(icon) { %>
-  <div id="display">
-
+   <div class="display">
     <ul>
       <li>Icon ID      : <%= icon.id%> </li>
       <li><img src="<%= icon.preview_url_42%>" alt="icon"/></li>
     </ul>
     <%if (req.session.userId != null) { %>
-
-
      <form action="/favorites/addFavorite" method="post" accept-charset="utf-8">
         <input type="hidden" name="icon[userid]"  value="<%=req.session.userId%>">
         <input type="hidden" name="icon[id]" value="<%=icon.id %>">
@@ -32,13 +45,12 @@
         <input type="submit" value="Add to Fav">
       </form>
     <% } %>
-  </div>
+      </div>
  <% }) %>
+</div>
 
 
-
-
-
-<a href="/">Search Again</a>
+<!--
+<a href="/">Search Again</a> -->
 </body>
 </html>

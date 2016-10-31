@@ -4,24 +4,27 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noun Project Search</title>
-    <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+
     <link rel="stylesheet" type="text/css" href="./css/main.css">
   <div class='userlogin'>
   <nav>
         <a href="/signup">Sign Up</a>
+        &nbsp;
         <a href="/login">Log In</a>
  </nav>
  </div>
 </head>
 <body>
 
-  <h1>Noun Project Search</h1>
-  <form action="/search/searchIcon" method="GET">
+  <h1 id="myTitle">Noun Project Search</h1>
+
+  <form class ="searchform cf" action="/search/searchIcon" method="GET">
     <input type="text"  name="icon"  placeholder="Enter Search">
     <input type="submit" value="Search">
   </form>
 
-<a href="/">Search Again</a>
+
+<!-- <a href="/">Search Again</a> -->
 
 </body>
 </html>
