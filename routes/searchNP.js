@@ -7,6 +7,7 @@ router.get('/searchIcon', search, favoritesDB.showAllFavorites, (req, res) => {
    res.render('show_icon', {
     icon: res.icon,
     favorites: res.favorites,
+    req: req,
    });
 });
 

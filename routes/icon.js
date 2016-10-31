@@ -2,11 +2,15 @@ const router = require('express').Router();
 const {search} = require('../model/collect_icon');
 const favoritesDB  = require('../model/favorites')
 
-router.get('/', favoritesDB.showAllFavorites, (req, res) => {
-   res.render('index', {
-    icon: [],
-    favorites: res.favorites,
+router.get('/', favoritesDB.showAllUserFavorites, (req, res) => {
+   res.render('profileFavo', {
+   favorites: res.favorites,
    });
+
+   // res.render('index', {
+   //  icon: res.icon,
+   //  favorites: res.favorites,
+   // });
 });
 
 router.post('/addFavorite',  favoritesDB.addToFavorites, (req, res) => {
@@ -20,7 +24,6 @@ router.post('/addFavorite',  favoritesDB.addToFavorites, (req, res) => {
 router.delete('/deleteFavorite/:id', favoritesDB.deleteFavorite, (req, res) => {
    console.log('this is params' + req.params);
    res.redirect('/favorites/');
-});
-
+  });
 
 module.exports = router;

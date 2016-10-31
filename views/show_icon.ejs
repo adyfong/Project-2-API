@@ -3,10 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
-  <link rel="stylesheet" type="text/css" href="/style.css">
+  <title>Show Search Result</title>
+  <link rel="stylesheet" type="text/css" href="./css/normalize.css">
+  <link rel="stylesheet" type="text/css" href="./css/main.css">
+  <%if (req.session.userId == null) { %>
+     <nav>
+        <a href="/signup">Sign Up</a>
+        <a href="/login">Log In</a>
+     </nav>
+  <% } %>
 </head>
 <body id="IconPage">
+
  <% icon.forEach(function(icon) { %>
   <div id="display">
 
@@ -14,33 +22,22 @@
       <li>Icon ID      : <%= icon.id%> </li>
       <li><img src="<%= icon.preview_url_42%>" alt="icon"/></li>
     </ul>
+    <%if (req.session.userId != null) { %>
+
+
      <form action="/favorites/addFavorite" method="post" accept-charset="utf-8">
+        <input type="hidden" name="icon[userid]"  value="<%=req.session.userId%>">
         <input type="hidden" name="icon[id]" value="<%=icon.id %>">
         <input type="hidden" name="icon[previewURL]" value="<%= icon.preview_url_42%>">
         <input type="submit" value="Add to Fav">
       </form>
+    <% } %>
   </div>
  <% }) %>
 
-<div class='favorites'>
-  <h1> FAVORITES </h1>
-  <% favorites.forEach(function(fav) { %>
-    <div class="result">
-      <h4>Icon: <%= fav.id %></h4>
-      <img class="favoriteItems" src="<%= fav.preview_url_42%>" alt="icon" />
-      <form action="/favorites/deleteFavorite/<%=fav._id %>" method="post">
-       <input type="hidden" name="_METHOD" value="DELETE"/>
-       <input type="submit" value="Delete">
-      </form>
-    </div>
-  <% }) %>
-  </div>
 
-form action="/books/1" method="post">
-    ... other form fields here...
-    <input type="hidden" name="_METHOD" value="DELETE"/>
-    <input type="submit" value="Delete Book"/>
-</form>
+
+
 
 <a href="/">Search Again</a>
 </body>

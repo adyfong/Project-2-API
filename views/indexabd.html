@@ -13,3 +13,16 @@
   <% }) %>
   </div>
 
+
+<div class='favorites'>
+  <h1> FAVORITES </h1>
+  <% favorites.forEach(function(fav) { %>
+    <div class="result">
+      <h4>Icon: <%= fav.id %></h4>
+      <img class="favoriteItems" src="<%= fav.previewURL%>" alt="icon" />
+      <form action="/favorites/deleteFavorite/<%= fav._id %>?_method=DELETE" method="post">
+      <input type="submit" value="Delete">
+      </form>
+    </div>
+  <% }) %>
+  </div>

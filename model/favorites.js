@@ -3,6 +3,7 @@ const { ObjectID } = require('mongodb');
 
 const dbConnection = 'mongodb://localhost:27017/iconCRUD';
 
+
 function showAllFavorites(req, res, next) {
    console.log('in showallfavorite')
    MongoClient.connect(dbConnection, (err, db) => {
@@ -18,6 +19,26 @@ function showAllFavorites(req, res, next) {
        }); //end of toarray
     });  // end of MongoClient
    } // end of showAllFavorites
+
+
+
+function showAllUserFavorites(req, res, next) {
+   console.log('in showAllUserFavorites ' + req.session.userId)
+   MongoClient.connect(dbConnection, (err, db) => {
+     if (err) return next(err)
+
+      db.collection('favorite')
+       .find({userid : String(req.session.userId)})
+       .toArray((arrayError, data) =>  {
+        if (arrayError) return (next(arrayError));
+        console.log('...data is ' + data)
+        res.favorites = data;
+        db.close();
+        return next();
+       }); //end of toarray
+    });  // end of MongoClient
+   } // end of showAllFavorites
+
 
 function addToFavorites (req, res, next) {
   MongoClient.connect(dbConnection, (err, db) => {
@@ -52,7 +73,8 @@ function deleteFavorite (req, res, next) {
 
 module.exports = {
   showAllFavorites,
+  showAllUserFavorites,
   addToFavorites,
-  deleteFavorite,
+  deleteFavorite
 }
 
