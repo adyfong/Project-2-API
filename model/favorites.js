@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const { ObjectID } = require('mongodb');
 
-const dbConnection = process.env.MONGODB_URI || 'mongodb://localhost:27017/iconCRUD';
+const dbConnection = process.env.MONGOLAB_GREEN_URI || 'mongodb://localhost:27017/iconCRUD';
 
 
 function showAllFavorites(req, res, next) {
@@ -10,7 +10,7 @@ function showAllFavorites(req, res, next) {
      if (err) return next(err)
 
       db.collection('favorite')
-       .find()
+       .find({})
        .toArray((arrayError, data) =>  {
         if (arrayError) return (next(arrayError));
         res.favorites = data;
