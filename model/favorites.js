@@ -3,6 +3,7 @@ const { ObjectID } = require('mongodb');
 
 const dbConnection = process.env.MONGOLAB_GREEN_URI || 'mongodb://localhost:27017/iconCRUD';
 
+MongoClient.connect(dbConnection);
 
 function showAllFavorites(req, res, next) {
    console.log('in showallfavorite')
