@@ -34,15 +34,15 @@
  <% icon.forEach(function(icon) { %>
    <div class="display">
     <ul>
-      <li>Icon ID      : <%= icon.id%> </li>
       <li><img src="<%= icon.preview_url_42%>" alt="icon"/></li>
+
     </ul>
     <%if (req.session.userId != null) { %>
      <form action="/favorites/addFavorite" method="post" accept-charset="utf-8">
         <input type="hidden" name="icon[userid]"  value="<%=req.session.userId%>">
         <input type="hidden" name="icon[id]" value="<%=icon.id %>">
         <input type="hidden" name="icon[previewURL]" value="<%= icon.preview_url_42%>">
-        <input type="submit" value="Add to Fav">
+        <input class="middleTag" type="submit" value="Add to Fav">
       </form>
     <% } %>
       </div>

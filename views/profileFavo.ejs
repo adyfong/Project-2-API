@@ -14,7 +14,7 @@
     </form>
     </div>
 
-  <form class ="searchform cf" action="/search/searchIcon" method="GET">
+  <form class ="searchform" action="/search/searchIcon" method="GET">
     <input type="text"  name="icon"  placeholder="Enter Search">
     <input type="submit" value="Search">
   </form>
@@ -27,7 +27,7 @@
       <h4>Icon: <%= fav.id %></h4>
       <img class="favoriteItems" src="<%= fav.previewURL%>" alt="icon" />
       <form action="/favorites/deleteFavorite/<%=fav._id %>?_method=DELETE" method="post">
-       <input type="submit" value="Delete">
+       <input class="middleTag" type="submit" value="Delete">
       </form>
       </div>
 <% }) %>
