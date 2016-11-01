@@ -2,7 +2,7 @@
   "name": "icon_project",
   "version": "1.0.0",
   "description": "API for icons",
-  "engine": {
+  "engines": {
     "node": "6.6.0"
   },
   "main": "app.js",
