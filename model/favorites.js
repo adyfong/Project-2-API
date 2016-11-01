@@ -3,7 +3,7 @@
 const { getDB }    = require('../lib/dbConnect.js');
 const { ObjectID } = require('mongodb');
 // process.env.MONGOLAB_GREEN_URI ||
-const dbConnection =  'mongodb://localhost:27017/iconCRUD';
+const dbConnection = process.env.MONGOLAB_GREEN_URI ||  'mongodb://localhost:27017/iconCRUD';
 
 
 function showAllFavorites(req, res, next) {
