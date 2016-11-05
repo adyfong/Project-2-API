@@ -1,6 +1,3 @@
-/* eslint no-multi-spaces: ["error", { exceptions: { "VariableDeclarator": true } }] */
-/* eslint no-param-reassign: ["error", { "props": false }] */
-
 const bcrypt    = require('bcryptjs');
 const userModel = require('../model/user');
 
